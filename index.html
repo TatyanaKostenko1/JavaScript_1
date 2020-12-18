@@ -3,27 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Document</title>
+    <title>Lesson_8</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Task List</h1>
-        </header>
-        <main>
-            <div id="task-list" class="task-list">
-                
-            </div>
-            <div class="task-form">
-                <input class="task-form__input" id="new-task" type="text" />
-                <button class="task-form__btn" id="add-task-btn">+</button>
-            </div>
-        </main>
-        <footer>
-            <p>GeekBrains 2020 &copy;</p>
-        </footer>
-    </div>
-    <script src="js/main.js"></script>
+    <script>
+
+        
+    if (!("a" in window)) {
+        var a = 1;
+    }
+    alert(a);
+
+
+   
+
+/*Комментарий: на экране: undefined. 
+Совсем не нашла информации, только остается догадываться (пока, я так понимаю, освоила очень мало информации) -
+я так понимаю, что верно и такое выражение: 
+var a; 
+if (!("a" in window)) {
+        a = 1;
+    }
+    alert(a);
+На экране: undefined, полтому что  !("a" in window) = false, а значит и нет входа в блок if.
+А попытка обратиться к переменной a - невозможна, так как переменоной а нет.*/
+
+
+
+
+var b = function a(x) {
+    x && a(--x);
+};
+alert(a);
+/*Комментарий: на экране: undefined. 
+Есть переменная b, в которую присваивается функция function a(x). 
+Чтобы вызвать эту функцию надо написать alert(b());
+В любом случае выведется undefined потому, что функция не возвращает результата, нет return.*/
+
+function a(x) {
+    return x * 2;
+}
+var a;
+alert(a);
+/*Комментарий: 
+Здесь указывается функция function a(x). 
+Чтобы вызвать эту функцию надо написать alert(a(параметр));
+Если в параметро указать, например 2 - то на экран выведется: 4 -
+function a(x) {
+    return x * 2;
+}
+var a;
+alert(a(2));*/
+
+
+
+
+function b(x, y, a) {
+    arguments[2] = 10;
+    alert(a);
+}
+b(1, 2, 3);
+
+/*Комментарий: на экране должно быть 10...
+Но, выводит undefined. Хотя, на первый взгляд, все очевидно! В переменную b присваиваются значания: 1, 2 и 3;
+строка arguments[2] = 10; присваивает a = 10. Что не так?*/
+
+
+
+
+function a() {
+    alert(this);
+}
+a.call(null);
+
+/*Комментарий: на экране [object Window]
+"Работа" call. Метод call позволяет вызывать функцию, как будто это метод, предоставляемый объектом, 
+к которому привязана переменная this. Первый аргумент call – это значение, 
+к которому нужно привязать this. */
+
+
+</script>
 </body>
 </html>
